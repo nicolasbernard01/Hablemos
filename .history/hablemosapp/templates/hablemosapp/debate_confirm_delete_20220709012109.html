@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Publicacion</title>
+</head>
+<body>
+    <h1 style="padding-left: 345px; font-size: 35px;" >Eliminar publicacion?</h1>
+    <br>
+        <form style="padding-left: 350px; font-size:10px;" action="" method="post"> 
+
+            {% csrf_token %} 
+
+            {{ form | crispy}} 
+            <br>
+            <br>
+
+        <button type="submit;" style="font-size: 13px;" ><strong>Registrarme</strong></button>
+
+    </form>
+</body>
+</html>

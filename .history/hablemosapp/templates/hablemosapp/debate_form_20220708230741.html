@@ -1,0 +1,110 @@
+{% extends 'hablemosapp/debate_list.html' %}
+{% load static %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+
+ <!-- site header
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="base.html">
+                        <img src="{% static 'images/logo.svg' %}" alt="Homepage">
+                    </a>
+                </div>
+
+                <div class="header__search">
+    
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="header__search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__search-close">Close</a>
+        
+                </div>  <!-- end header__search -->
+
+                <!-- toggles -->
+                <a href="#0" class="header__search-trigger"></a>
+                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <li><a href="base.html" title="">Inicio</a></li>
+                    <li class="has-children">
+                        <a href="#0" title="">Categorias:</a>
+                        <ul class="sub-menu">
+                        <li><a href="category.html">Politica</a></li>
+                        <li><a href="category.html">Salud</a></li>
+                        <li><a href="category.html">Sociedad</a></li>
+                        <li><a href="category.html">Creepy</a></li>
+                        <li><a href="category.html">Deporte</a></li>
+                        <li><a href="category.html">Varios</a></li>
+                        </ul>
+                    </li>
+                    <li class="current"><a href="{% url 'debate_create' %}">Crear Debate</a></li>
+                    <li><a href="{% url 'login' %}" title="">Iniciar Sesion</a></li>
+                    <li><a href="page-contact.html" title="">About us</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-facebook">
+                        <a href="https://facebook.com/">
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="ss-twitter">
+                        <a href="#0">
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="ss-dribbble">
+                        <a href="#0">
+                            <span class="screen-reader-text">Dribbble</span>
+                        </a>
+                    </li>
+                    <li class="ss-pinterest">
+                        <a href="#0">
+                            <span class="screen-reader-text">Behance</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav> <!-- end header__nav-wrap -->
+
+          
+
+        </header> <!-- end s-header -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>        
+        <div class="card" style="padding-left: 350px;">
+            <div class="card-body">
+                    <title>Creacion Debate</title>
+                    </head>
+                    <body>
+                        <form action="" method="post">
+                            
+                            {% csrf_token %}
+
+                            {{form | crispy}}
+                            <br>
+                            <br>
+                            <button type="submit" style="font-size: 13px;" > Publicar</button>
+                        </form>
+                    </body>
+                    </html>
+
+
+                </div>    
+{% endblock %}

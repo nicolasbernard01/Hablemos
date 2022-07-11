@@ -1,0 +1,22 @@
+{% extends 'hablemosapp/debate_list.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+    <title>Eliminar Publicacion</title>
+</head>
+<body>
+    <h1 style="padding-left: 345px; font-size: 35px;" >Eliminar publicacion?</h1>
+    <br>
+        <form style="padding-left: 350px; font-size:10px;" action="" method="post"> 
+
+            {% csrf_token %} 
+
+            {{ form | crispy}} 
+            <br>
+            <br>
+
+        <button type="submit;" style="font-size: 13px;" ><strong>Eliminar</strong></button>
+
+    </form>
+</body>
+</html>

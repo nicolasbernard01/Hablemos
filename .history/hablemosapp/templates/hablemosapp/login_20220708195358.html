@@ -1,0 +1,31 @@
+{% extends 'hablemosapp/debate_list.html' %}
+{% load static %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+
+
+{% block contenido %}
+ {% load crispy_forms_tags %}
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 style="padding-left: 345px; font-size: 35px;">Iniciar Sesion</h1>
+    <br>
+        <form style="padding-left: 350px; font-size:10px;" action="" method="post"> 
+
+            {% csrf_token %} 
+
+            {{ form | crispy}} 
+            <br>
+            <br>
+
+        <button type="submit" style="font-size: 13px;" ><strong>Iniciar Sesion</strong></button>
+
+    </form>
+
+
+</body>
+{% endblock %}
