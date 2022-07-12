@@ -4,10 +4,10 @@ from django.contrib.auth.models import User
 
 class Debate(models.Model):
 
-    titulo = models.CharField('titulo', max_length=60)
+    titulo = models.CharField('titulo', max_length=30)
     subtitulo = models.CharField('subtitulo', max_length=150)
     cuerpo = models.TextField('cuerpo')
-    imagen = models.ImageField('imagen', blank = True)
+    imagen = models.ImageField('imagen', upload_to blank = True)
     creado = models.DateField(default=timezone.now)
     likes = models.ManyToManyField(User, blank=True, related_name='likes')
     dislike = models.ManyToManyField(User, blank=True, related_name='dislike')

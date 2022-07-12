@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Debate(models.Model):
 
-    titulo = models.CharField('titulo', max_length=60)
+    titulo = models.CharField('titulo', max_length=30)
     subtitulo = models.CharField('subtitulo', max_length=150)
     cuerpo = models.TextField('cuerpo')
     imagen = models.ImageField('imagen', blank = True)

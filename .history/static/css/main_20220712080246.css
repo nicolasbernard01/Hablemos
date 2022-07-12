@@ -751,7 +751,7 @@ select {
   display: block;
   height: 6.4rem;
   padding: 1.6rem 0 1.5rem;
-  border: 60;
+  border: 60px;
   outline: none;
   color: #000000;
   font-family: "IBM Plex Sans", sans-serif;

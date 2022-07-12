@@ -4,7 +4,7 @@
 {% block contenido %}
 {% load crispy_forms_tags %}
 
-        <!-- site header
+ <!-- site header
         ================================================== -->
         <header class="s-header">
 
@@ -38,9 +38,19 @@
             <nav class="header__nav-wrap">
 
                 <ul class="header__nav">
-                    <li><a href="{% url 'debate_list' %}" title="">Debates</a></li>
-                    <li><a href="{% url 'debate_create' %}">Crear Debate</a></li>
-                    <li><a href="{% url 'logout' %}" title="">Cerrar Sesion</a></li>
+                    <li><a href="{% url 'debate_list' %}" title="">Inicio</a></li>
+                    <li class="has-children">
+                        <a href="#0" title="">Categorias:</a>
+                        <ul class="sub-menu">
+                        <li><a href="category.html">Politica</a></li>
+                        <li><a href="category.html">Salud</a></li>
+                        <li><a href="category.html">Sociedad</a></li>
+                        <li><a href="category.html">Creepy</a></li>
+                        <li><a href="category.html">Deporte</a></li>
+                        <li><a href="category.html">Varios</a></li>
+                        </ul>
+                    </li>
+                    <li class="current"><a href="{% url 'debate_create' %}">Crear Debate</a></li>
                     <li><a href="page-contact.html" title="">About us</a></li>
                 </ul> <!-- end header__nav -->
 
@@ -72,26 +82,25 @@
           
 
         </header> <!-- end s-header -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+         
+            <h1 style="padding-left: 345px; font-size: 35px;">R Debate</h1>
+                <br>
+                
+                <form style="padding-left: 350px; font-size:10px;" action="" method="post"> 
 
-<body>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1 style="padding-left: 345px; font-size: 35px;" >Editando "{{user.username}}"</h1>
-    <br>
-        <form style="padding-left: 350px; font-size:10px;" action="" method="post"> 
+                    {% csrf_token %} 
 
-            {% csrf_token %} 
+                    {{ form | crispy }} 
+                    <br>
+                    <br>
 
-            {{ form | crispy}} 
-            <br>
-            <br>
+                <button type="submit" value="Enviar" style="font-size: 13px;" ><strong>Publicar</strong></button>
 
-        <button type="submit;" style="font-size: 13px;" ><strong>Guardar</strong></button>
-
-    </form>
-
-
-</body>
+                </form>
+        
 {% endblock %}
