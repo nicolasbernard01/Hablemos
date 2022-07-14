@@ -1,0 +1,102 @@
+{% extends 'hablemosapp/debate_list.html' %}
+{% load static %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="{% url 'debate_list' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="Homepage">
+                    </a>
+                </div>
+
+                <!-- toggles -->
+                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <li><a href="{% url 'debate_list' %}" title="">Debates</a></li>
+                    <li><a href="{% url 'debate_create' %}">Crear Debate</a></li>
+                    <li><a href="{% url 'logout' %}" title="">Cerrar Sesion</a></li>
+                    <li><a href="page-contact.html" title="">About us</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-facebook">
+                        <a href="https://facebook.com/">
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="ss-twitter">
+                        <a href="#0">
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="ss-dribbble">
+                        <a href="#0">
+                            <span class="screen-reader-text">Dribbble</span>
+                        </a>
+                    </li>
+                    <li class="ss-pinterest">
+                        <a href="#0">
+                            <span class="screen-reader-text">Behance</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav> <!-- end header__nav-wrap -->
+
+          
+
+        </header> <!-- end s-header -->
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 style="padding-left: 345px; font-size: 35px;" >Editando "{{user.username}}"</h1>
+    <br>
+    {% for message in messages %}
+    {% if message.error %}
+    <div class="col- row-5 alert alert-danger d-flex align-items-left" style="padding-left: 325px; font-size: 15px;" role="alert">
+        <svg class="bi flex-shrink-0" width="24" height="24" role="img" aria-label="Info:"  ><use xlink:href="#info-fill"/></svg>
+        <div>
+          {{message.error}}
+        </div>
+      </div>
+    {% else %}
+    <div class="col- row-5 alert alert-success d-flex align-items-left" style="padding-left: 325px; font-size: 15px;" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"  ><use xlink:href="#info-fill"/></svg>
+        <div>
+          {{message}}
+        </div>
+      </div>
+    {% endif %}
+    {% endfor %}
+    <br>
+    
+        <form style="padding-left: 350px; font-size:10px;" action="" method="post" enctype="multipart/form-data",> 
+
+            {% csrf_token %} 
+
+            {{ form | crispy}} 
+            <br>
+            <br>
+
+        <button type="submit;" style="font-size: 13px;" ><strong>Guardar</strong></button>
+
+    </form>
+
+    
+
+</body>
+{% endblock %}
