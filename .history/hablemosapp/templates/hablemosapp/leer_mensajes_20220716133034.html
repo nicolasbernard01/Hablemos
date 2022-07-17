@@ -1,0 +1,117 @@
+{% extends 'hablemosapp/debates.html' %}
+{% load static %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="{% url 'debates' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="Homepage">
+                    </a>
+                </div>
+
+                <!-- toggles -->
+                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <li><a href="{% url 'debates' %}" title="">Debates</a></li>
+                    <li><a href="{% url 'debate_create' %}">Crear Debate</a></li>
+                    <li><a href="{% url 'logout' %}" title="">Cerrar Sesion</a></li>
+                    <li><a href="page-contact.html" title="">About us</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-facebook">
+                        <a href="https://facebook.com/">
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="ss-twitter">
+                        <a href="#0">
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="ss-dribbble">
+                        <a href="#0">
+                            <span class="screen-reader-text">Dribbble</span>
+                        </a>
+                    </li>
+                    <li class="ss-pinterest">
+                        <a href="#0">
+                            <span class="screen-reader-text">Behance</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav> <!-- end header__nav-wrap -->
+
+          
+
+        </header> <!-- end s-header -->
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 style="padding-left: 345px; font-size: 35px;" >Mensajes directos</h1>
+    <br>
+    <br>
+    {% for mensaje in mensajes %}
+    <body>
+        <div class="container" style="padding-left: 345px; font-size: 35px;">
+          <div class="row">
+            <nav class="menu">
+              <ul class="items">
+                <li class="item">
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                </li>
+                <li class="item">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </li>
+                <li class="item">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </li>
+                <li class="item item-active">
+                  <i class="fa fa-commenting" aria-hidden="true"></i>
+                </li>
+                <li class="item">
+                  <i class="fa fa-file" aria-hidden="true"></i>
+                </li>
+                <li class="item">
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                </li>
+              </ul>
+            </nav>
+      
+            <section class="discussions">
+              <div class="discussion search">
+                <div class="searchbar">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                  <input type="text" placeholder="Search..."></input>
+                </div>
+              </div>
+              <div class="discussion message-active">
+                <div class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
+                  <div class="online"></div>
+                </div>
+                <div class="desc-contact">
+                  <p class="name">{{mensaje.emisor}}</p>
+                  <p class="message">9 pm at the bar if possible 😳</p>
+                </div>
+                <div class="timer">12 sec</div>
+              </div>
+      
+              <div class="discussion">
+    {% endfor %}  
+</body>
+{% endblock %}
