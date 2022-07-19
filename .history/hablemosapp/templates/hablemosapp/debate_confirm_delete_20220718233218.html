@@ -1,0 +1,121 @@
+{% extends 'hablemosapp/debates.html' %}
+{% load static %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="{% url 'debates' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="Homepage">
+                    </a>
+                </div>
+
+                <div class="header__search">
+    
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="header__search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__search-close">Close</a>
+        
+                </div>  <!-- end header__search -->
+
+                <!-- toggles -->
+                <a href="#0" class="header__search-trigger"></a>
+                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap">
+
+                
+                <ul class="header__nav">
+                    <li class="current"><a href="{% url 'debates' %}" title="">Inicio</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'debate_create' %}">Crear Debate</a></li>
+                    <li><a href="page-contact.html" title="">About us</a></li>
+                    <br>
+                    
+                    {% if user.avatar.imagen.url %}
+                    <img src="{{ user.avatar.imagen.url }}" alt="" style="border-radius:75%; width:45%; height: 90px;">
+                    {% else %}
+                    <a href="{% url 'user_avatar' %}" title=""><svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-person" viewBox="0 0 16 16" style="border-radius:75%; width:47%; height: 100px; border-color:white">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                    </svg></a>
+                    {% endif %}
+                    <br>
+                    <br>   
+                    <li style="color: white;">Hola <b style="text-decoration: none;">'{{user.username}}'<b></a></li>
+                    {% if mensajes %}
+                    <span class="badge badge-success badge-counter">{{mensajes|length}}
+                    <a href=" {% url 'leer_mensajes' %} "><svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="white" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                    </svg></a></span>
+                    {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                    </svg>
+                    {% endif %}
+                    <li class="has-children">
+                        <a href="#0" title="">Mensajes:</a>
+                        <ul class="sub-menu">
+                        <li><a href="{% url 'leer_mensajes' %}">Buzon</a></li>
+                        <li><a href="{% url 'enviar_mensaje' %}">Enviar mensaje</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                            <a href="#0" title="">Perfil:</a>
+                            <ul class="sub-menu">
+                            <li><a href="{% url 'editar_perfil' %}">Editar perfil</a></li>
+                            <li><a href="{% url 'user_avatar' %}">Avatar</a></li>
+                            <li><a href="{% url 'logout' %}" title="">Cerrar Sesion</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}" title="">Iniciar Sesion</a></li>
+                    <li><a href="page-contact.html" title="">About us</a></li>
+                    {% endif %}
+
+            </nav> <!-- end header__nav-wrap -->
+
+          
+
+        </header> <!-- end s-header -->
+
+<body>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 style="padding-left: 345px; font-size: 35px;">Eliminar Publicacion</h1>
+    <br>
+    <br>
+        <form style="padding-left: 350px; font-size:10px;" action="" method="post"> 
+
+            {% csrf_token %} 
+
+            <h3>Esta seguro que desea eliminar la publicacion "{{ object.titulo }}"??</h3>
+            <br>
+            <br>
+            <h5>Luego de confirmar la eliminacion no podra recuper el archivo</h5>
+            <br>
+            <br>
+            {{ form | crispy }} 
+            <br>
+            <br>
+        <button type="submit" style="font-size: 13px;" ><strong>Eliminar</strong></button>
+
+    </form>
+
+
+</body>
+{% endblock %}
