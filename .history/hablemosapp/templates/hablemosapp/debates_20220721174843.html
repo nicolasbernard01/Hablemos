@@ -169,7 +169,7 @@
                     <article class="masonry__brick entry format-standard animate-this" style="text-align: left;">
                     {% if debate.imagen %}
                         <div class="entry__thumb"><a href="{% url 'leer_debate' debate.id %}">
-                                <img src= {{debate.imagen.url}} style= "width:150%; height: 300px; border-radius:3%">
+                                <img src= {{debate.imagen.url}} style= "padding-left: 325px width:150%; height: 300px; border-radius:3%">
                                                                          
                             </a>
                         </div>
@@ -183,7 +183,7 @@
                                 <br>
                                 <p>{{debate.cuerpo|slice:':150'}}...</p>
                                 <div class="entry__meta">
-                                <br>
+                                
                                     <span class="entry__meta-cat">
                                 {% if user.is_authenticated and user == debate.autor %}        
                                         <a href="{% url 'debate_update' debate.id %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">

@@ -183,7 +183,6 @@
                                 <br>
                                 <p>{{debate.cuerpo|slice:':150'}}...</p>
                                 <div class="entry__meta">
-                                <br>
                                     <span class="entry__meta-cat">
                                 {% if user.is_authenticated and user == debate.autor %}        
                                         <a href="{% url 'debate_update' debate.id %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">

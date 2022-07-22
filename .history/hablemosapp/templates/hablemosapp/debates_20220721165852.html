@@ -176,14 +176,15 @@
                     {% endif %}    
                         <div class="entry__text" style="text-align: left;">
                             <div class="entry__header">
-                                <h2 class="entry__title" ><a href="{% url 'leer_debate' debate.id %}"><b>{{debate.titulo}}</b></a></h2>
+                                <h2 class="entry__title"><a href="{% url 'leer_debate' debate.id %}"><b>{{debate.titulo}}</b></a></h2>
                                 <div class="entry__excerpt">
                                 <p>{{debate.subtitulo}}</p>
                                 </div>
                                 <br>
-                                <p>{{debate.cuerpo|slice:':150'}}...</p>
+                                <p>{{debate.cuerpo|slice:":255"
+
+                                    Fuente: https://www.iteramos.com/pregunta/66197/limitar-el-numero-de-caracteres-con-el-filtro-django-template}}</p>
                                 <div class="entry__meta">
-                                <br>
                                     <span class="entry__meta-cat">
                                 {% if user.is_authenticated and user == debate.autor %}        
                                         <a href="{% url 'debate_update' debate.id %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">

@@ -23,8 +23,8 @@ class Comentario(models.Model):
     likes = models.ManyToManyField(User, blank=True, related_name='comentario_likes')
     dislike = models.ManyToManyField(User, blank=True, related_name='comentario_dislike')
 
-    def __str__(self):
-        return self.comentario
+    def __str__(self) -> str:
+        return super().__str__()
 
 
 class Avatar(models.Model):
@@ -42,5 +42,6 @@ class Mensaje(models.Model):
     creado = models.DateTimeField(auto_now=True)
 
     def __str__(self):
+
         return self.mensaje
 

@@ -2,7 +2,7 @@ from urllib import request
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout,authenticate
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Debate, Avatar, User, Mensaje
 from .forms import AvatarForm, CrearMensajeForm, UserEditForm, UserRegisterForm, DebateForm
 from django.contrib.auth.decorators import login_required
@@ -160,7 +160,7 @@ class DebateDelete(LoginRequiredMixin, DeleteView):
 
     model = Debate
 
-    success_url = '/debates/'
+    success_url = '//'
 
 @login_required
 def editar_perfil(request):
