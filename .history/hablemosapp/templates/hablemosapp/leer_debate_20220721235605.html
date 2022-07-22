@@ -1,0 +1,194 @@
+{% extends 'hablemosapp/debates.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+<!-- site header
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="{% url 'debates' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="Homepage">
+                    </a>
+                </div>
+
+                <div class="header__search">
+    
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="header__search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__search-close">Close</a>
+        
+                </div>  <!-- end header__search -->
+
+                <!-- toggles -->
+                <a href="#0" class="header__search-trigger"></a>
+                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <li><a href="{% url 'debates' %}" title="">Inicio</a></li>
+                    <li><a href="{% url 'crear_debate' %}" title="">Crear Debate</a></li>
+                    <li><a href="page-contact.html" title="">About us</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-facebook">
+                        <a href="https://facebook.com/">
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="ss-twitter">
+                        <a href="#0">
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="ss-dribbble">
+                        <a href="#0">
+                            <span class="screen-reader-text">Dribbble</span>
+                        </a>
+                    </li>
+                    <li class="ss-pinterest">
+                        <a href="#0">
+                            <span class="screen-reader-text">Behance</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav> <!-- end header__nav-wrap -->
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <article class="column large-full entry format-standard" style="justify-content:center">
+                    {% if debate.imagen %}
+                    <div class="media-wrap entry__media">
+                        <div class="entry__post-thumb">
+                            <img src="{{debate.imagen.url}}" style="width:100%; height: 550px; padding-left: 125px;"> 
+                      </div>
+                    </div>
+                    {% endif %}
+                    <div class="content__entry__header" style="padding-left: 130px;">
+                        <h1 style= "font-size: 45px">
+                            {{debate.titulo}}
+                        </h1>
+                        <ul>
+                            <br>
+                            <li class="author" style="font-size: 15px;"><b>Creador:</b> {{debate.autor.username}}</a></li>
+                            <li class="date" style="font-size: 15px;"><b>Publicado:</b>: {{debate.creado}}</li>
+                            <br>
+                        </ul>
+                    </div> <!-- end entry__header -->
+
+                    <div style="padding-left: 130px;">
+
+                        <p style="font-size: 20px;">
+                        <b>{{debate.subtitulo}}</b>
+                        </p>
+                        <br>
+                        <p style="font-size: 15px;">
+                        {{debate.cuerpo}}
+                        </p>
+
+                        <p>
+                        <img src="images/wheel-1000.jpg" 
+                             srcset="images/wheel-2000.jpg 2000w, 
+                                     images/wheel-1000.jpg 1000w, 
+                                     images/wheel-500.jpg 500w" 
+                                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                        </p>
+                        {% if comentarios %}
+                        <h3 class="h2">{{ comentarios|lenght }}</h3>
+                        {% endif}}
+                        {% for comentario in comentarios  %}
+                                <div class="comments-wrap">
+
+                                    <div id="comments" class="column large-12">
+
+                                        
+                                        
+                        
+                                        <!-- START commentlist -->
+                                        <ol class="commentlist">
+                        
+                                            <li class="depth-1 comment">
+                        
+                                                <div class="comment__avatar">
+                                                    <img class="avatar" src="{% static 'images/avatars/user-01.jpg' %}" alt="" width="50" height="50">
+                                                </div>
+                        
+                                                <div class="comment__content">
+                        
+                                                    <div class="comment__info">
+                                                        <div class="comment__author">{{comentario.autor}}</div>
+                        
+                                                        <div class="comment__meta">
+                                                            <div class="comment__time">{{comentario.creado}}</div>
+                                                            <div class="comment__reply">
+                                                                <a class="comment-reply-link" href="#0">Reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                        
+                                                    <div class="comment__text">
+                                                    <p>{{comentario.comentario}}</p>
+                                                    </div>
+                        
+                                                </div>
+                        
+                                            </li> <!-- end comment level 1 -->
+                            {% endfor %}             
+                                           
+                    
+                                                           
+                                        
+                                 
+                                <div class="column large-12 comment-respond">
+
+                                    <!-- START respond -->
+                                    <div id="respond">
+                        
+                                        <h3 class="h2">Comentar: <span>Adelante comparte tu opinion</span></h3>
+                        
+                                        <form style="padding-left: 350px; font-size:10px;" action="" method="post" enctype="multipart/form-data",> 
+
+                                            {% csrf_token %} 
+                                
+                                            {{ form | crispy}} 
+                                            <br>
+                                            <br>
+                                
+                                        <button type="submit;" style="font-size: 13px;" ><strong>Comentar</strong></button>
+                                
+                                    </form>
+                                        </form> <!-- end form -->
+                        
+                                    </div>
+                                    <!-- END respond-->
+                        
+                                </div> <!-- end comment-respond -->
+                        
+                            </div> <!-- end comments-wrap -->
+                        </main>
+
+                    </div> <!-- end s-content -->
+
+{%endblock%}
