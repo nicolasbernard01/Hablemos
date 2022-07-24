@@ -8,14 +8,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
 def inicio(request):
 
     debates = Debate.objects.all()
 
     ctx = {'debates':debates}
 
-    return render(request, r'hablemosapp/debates.html', ctx)
+    return render(request)
 
 def register_request(request):
 
