@@ -41,4 +41,4 @@ el archivo <b>requirements.txt,</b> luego para ponerlo en funcionamiento nos dir
 <br>
 <h3><b>CONTACTO:</b></h3>
 <br>
-<h4>Por cualquier consulta o aporte, comunicarse con <b>Nicolas Bernard.</b></h4>
+<h4>Por cualquier consulta o aporte, comunicarse con <b>Nicolas Bernard o Nicolas Maciel</b></h4>
