@@ -2,7 +2,7 @@
 <BR>
 <H1><b><i>HABLEMOS</b></i></H1>
 <BR>
-<H3><b>ALUMNO:</b> Nicolas Bernard</H3>
+<H3><b>ALUMNO:</b> Nicolas Bernard, Nicolas Maciel</H3>
 <br>
 <h3><b>DESCRIPCION DEL PROYECTO:</b></h3>
 <br>
