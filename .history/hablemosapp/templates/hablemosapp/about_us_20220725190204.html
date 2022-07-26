@@ -1,0 +1,81 @@
+{% extends 'hablemosapp/debates.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+<!-- site header
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="{% url 'debates' %}">
+                        <img style="width:80%; height: 94px; text-align:left" src="{% static 'images/hablemos.svg' %}" alt="Homepage">
+                    </a>
+                </div>
+
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <li><a href="{% url 'debates' %}" title="">Inicio</a></li>
+                    <li><a href="{% url 'crear_debate' %}" title="">Crear Debate</a></li>
+                    <li><a href="page-contact.html" title="">About us</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-facebook">
+                        <a href="https://facebook.com/">
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="ss-twitter">
+                        <a href="#0">
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="ss-dribbble">
+                        <a href="#0">
+                            <span class="screen-reader-text">Dribbble</span>
+                        </a>
+                    </li>
+                    <li class="ss-pinterest">
+                        <a href="#0">
+                            <span class="screen-reader-text">Behance</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav> <!-- end header__nav-wrap -->
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <article class="column large-full entry format-standard" style="justify-content:center">
+                    {% for value in about %}
+                    <div class="media-wrap entry__media">
+                        <div class="entry__post-thumb">
+                            <img src="{{debate.imagen.url}}" style="width:100%; height: 550px; padding-left: 125px; "> 
+                      </div>
+                    </div>
+                    {% endif %}
+                    <div class="content__entry__header" style="padding-left: 130px;">
+                        <h1 style= "font-size: 45px">
+                            <b><i> {{about.marca}}</i></b>
+                        </h1>
+                        <ul>
+                            <br>
+                            <li class="author" style="font-size: 15px;"><b>Creadores:</b> {{about.creador}}</a></li>
+                            <li class="date" style="font-size: 15px;"><b>Publicado:</b>: {{debate.creado}}</li>
+                            <br>
+                        </ul>
+                    </div> <!-- end entry__header -->
