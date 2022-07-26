@@ -41,7 +41,8 @@ el archivo <b>requirements.txt,</b> luego para ponerlo en funcionamiento nos dir
 <br>
 <h3><b>VIDEO PRESENTACION:</b></h3>
 <br> 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8_aStgHzfpM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<a href='https://youtu.be/8_aStgHzfpM' > Video click aqui</a>
+<br>
 <br>
 <h3><b>CONTACTO:</b></h3>
 <br>
