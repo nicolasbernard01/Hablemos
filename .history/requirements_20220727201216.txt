@@ -1,0 +1,5 @@
+django
+Pillow
+django-crispy-forms
+dj-database-url
+gunicorn
