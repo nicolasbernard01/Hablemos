@@ -39,6 +39,11 @@ tendran la posibilidad de abrir una discusion, y tambien de participar de discus
 el archivo <b>requirements.txt,</b> luego para ponerlo en funcionamiento nos dirigimos a la carpeta que contiene el archivo
 <b>manage.py</b> y ejecutamos la linea de codigo <b>py manage.py runserver</b>, y listo ya tenemos funcionando el proyecto.</h4>
 <br>
+<h3><b>VIDEO PRESENTACION:</b></h3>
+<br> 
+<a href='https://youtu.be/8_aStgHzfpM' > Video click aqui</a>
+<br>
+<br>
 <h3><b>CONTACTO:</b></h3>
 <br>
 <h4>Por cualquier consulta o aporte, comunicarse con <b>Nicolas Bernard o Nicolas Maciel</b></h4>
