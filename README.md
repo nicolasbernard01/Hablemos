@@ -1,8 +1,8 @@
-<H1><b><i>PROYECTO FINAL PARA CODERHOUSE</b></i></H1>
+<H1><b><i>PROYECTO REALIZADO EN DJANGO, PYTHON</b></i></H1>
 <BR>
 <H1><b><i>HABLEMOS</b></i></H1>
 <BR>
-<H3><b>ALUMNO:</b> Nicolas Bernard </H3>
+<H3><b>CREADO POR :</b> Nicolas Bernard </H3>
 <br>
 <h3><b>DESCRIPCION DEL PROYECTO:</b></h3>
 <br>
